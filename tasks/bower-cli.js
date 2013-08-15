@@ -27,7 +27,6 @@ module.exports = function(grunt) {
 		options = this.options({
 			action    : 'install',
 			directory : 'bower_components',
-			clean     : true,
 			args      : []
 		});
 
@@ -48,7 +47,6 @@ module.exports = function(grunt) {
 
 			// clear existing directory
 			var clean = function(callback) {
-				if (!options.clean) return callback();
 				if (!fs.existsSync(options.directory)) return callback();
 
 				var mv = spawn('rm', ['-rf', options.directory]);
@@ -61,8 +59,6 @@ module.exports = function(grunt) {
 
 			// move directory
 			var move = function(callback) {
-				if (options.directory === 'bower_components') return callback();
-
 				var mv = spawn('mv', ['bower_components', options.directory]);
 				mv.stdout.on('data', function(data) { grunt.log.write(data); });
 				mv.stderr.on('data', function(data) { grunt.log.error(data); });
@@ -71,7 +67,7 @@ module.exports = function(grunt) {
 				});
 			};
 
-			if (options.action === 'install') {
+			if (options.action === 'install' && options.directory !== 'bower_components') {
 				clean(function(err) {
 					if (err) {
 						grunt.fail.warn(err);
