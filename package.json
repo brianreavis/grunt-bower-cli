@@ -1,0 +1,20 @@
+{
+	"name": "grunt-bower-cli",
+	"description": "Installs Bower components using the Bower CLI.",
+	"keywords": ["grunt", "gruntplugin", "bower"],
+	"version": "0.0.1",
+	"homepage": "https://github.com/brianreavis/grunt-bower-cli",
+	"bugs": "https://github.com/brianreavis/grunt-bower-cli/issues",
+	"author": "Brian Reavis <brian@thirdroute.com>",
+	"main": "tasks/bower-cli.js",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/brianreavis/grunt-bower-cli.git"
+	},
+	"licenses": [{
+		"type": "Apache License, Version 2.0",
+		"url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+	}],
+	"engines": {"node": "*"},
+	"dependencies": {}
+}
